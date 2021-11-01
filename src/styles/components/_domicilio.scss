@@ -1,0 +1,25 @@
+.domicilio__main {
+    position: relative;
+    background-color: $white;
+    h2 {
+        font-size: 17px;
+        justify-self: center;
+        color: darken($color: $primary, $amount: 20);
+    }
+    .domicilio__icon {
+        font-size: 20px;
+        color: $primary;
+        position: absolute;
+        top: 4px;
+        right: 0px;
+    }
+}
+.domicilio__container {
+    max-width: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    input {
+        width: 28vw;
+    }
+}

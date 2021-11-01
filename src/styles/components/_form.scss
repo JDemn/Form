@@ -23,9 +23,9 @@
         border-left: none;
         border-right: none;
         &::placeholder {
-            // color: lighten($color: $primary, $amount: 15);
+            color: lighten($color: $dark, $amount: 15);
             margin-left: 5px!important;
-            color: darken($color: $green, $amount: 9);
+            // color: darken($color: $dark, $amount: 9);
             font-style: italic;
             font-size: 12px;
         }
