@@ -1,0 +1,47 @@
+.form__main {
+    background-color: $white-str;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 60vw;
+    margin-bottom: 50px;
+    padding: 0px 15px 15px 15px;
+    label {
+        color: darken($color: $primary, $amount: 20);
+    }
+    input:focus{
+        outline: none;
+        border-bottom: 2px solid $primary
+    }
+    label {
+        margin-bottom: 4px;
+    }
+    input {
+        min-height: 33px;
+        border: 1.3px solid darken($color: gray, $amount: 11);
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        &::placeholder {
+            // color: lighten($color: $primary, $amount: 15);
+            margin-left: 5px!important;
+            color: darken($color: $green, $amount: 9);
+            font-style: italic;
+            font-size: 12px;
+        }
+    }
+}
+
+.form__title {
+    color: darken($color: $green, $amount: 35);
+    margin-bottom: 0px;
+}
+.form-input-gral {
+    width: 100%;
+}
+.form-select{
+    // appearance: none;
+}
+.form__date {
+    width: 20vw;
+}

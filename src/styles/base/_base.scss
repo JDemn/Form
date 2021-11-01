@@ -1,0 +1,40 @@
+*{
+    font-family: Montserrat, Arial, sans-serif;
+    margin: 0px;
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d9d9d9;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d9d9d9;
+      }
+}
+
+html, body {
+    align-items: center;
+    background-color: #FFFF;
+    display: flex;
+    height: 100vh;
+    overflow-x: hidden;
+    justify-content: center;
+    width: 100vw;
+}
+
+.ml {
+  margin-left: 1.2rem;
+}
+.mr {
+  margin-right: 1.2rem;
+}
+.mt {
+  margin-top: 1.2rem;
+}
+.pointer {
+  cursor: pointer;
+}
