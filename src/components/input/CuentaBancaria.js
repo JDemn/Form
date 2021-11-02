@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FaArrowDown } from 'react-icons/fa';
+import { useClabeBancaria } from '../../hooks/useClabeBancaria';
 export const CuentaBancaria = () => {
     const [option, setoption] = useState(false);
 
@@ -7,7 +8,8 @@ export const CuentaBancaria = () => {
         console.log(currentTarget.className);
         currentTarget.className === 'cuentaBancaria__main d-flex justify-content-between pointer mt-3' && setoption(!option);
     }
-    
+    const { clabeBancariaV, clabeCorrecta } = useClabeBancaria();
+
     return (
         <>
             <div className="cuentaBancaria__main d-flex justify-content-between pointer mt-3" onClick={showOptions}>
@@ -17,20 +19,30 @@ export const CuentaBancaria = () => {
             {
                 option
                 &&
-                <div className="cuentaBancaria-container">
-                    <input
+                <>
+                    <div className="cuentaBancaria-container">
+                        <input
                             type="text"
-                            placeholder="clave interbancaria"
-                            name="cinterbancaria"                        
+                            placeholder="número de tarjeta"
+                            name="cinterbancaria"
+                            onChange={clabeBancariaV}
                         />
                         <input
                             type="text"
                             placeholder="banco"
                             name="banco"
-                            className="dos"                            
+                            className="dos"
                         />
-                </div>
+                    </div>
+                    {
+                        clabeCorrecta === false &&
+                        <div className="alert alert-danger mt-1" role="alert">
+                            El número de tarjeta no es correcto. Debe incluir 13 dígitos permitidos en VISA. O 16 siendo <h6>VISA,MASTERCARD Y DISCOVER</h6>
+                        </div>
+                    }
+                </>
             }
+
         </>
     )
 }

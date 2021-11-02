@@ -1,15 +1,28 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useEmail } from '../../hooks/useEmail'
 import { usePhone } from '../../hooks/usePhone';
 
 export const Localizacion = () => {
 
-    const { emailValidator, esCorrecto } = useEmail();
-    console.log('Es correcto?', esCorrecto);
+    const { emailValidator, emailCorrecto } = useEmail();
+    console.log('Es correcto?', emailCorrecto);
 
     const { phoneValidation, correcto } = usePhone();
     console.log('phone correcto?', correcto);
 
+    const uploadFile = ({ target }) => {
+        const file = target.files;
+        console.log('data file', file);
+        const reader = new FileReader();
+        reader.readAsDataURL(file[0])
+        reader.onload = ({ target }) => {
+            console.log('img', target.result);
+        }
+    }
+    useEffect(()=>{
+        // console.log('Email validation cambió!');
+    },[emailValidator, phoneValidation])
+    
 
     return (
         <div className="localizacion__main mt-4">
@@ -18,6 +31,7 @@ export const Localizacion = () => {
                 type="file"
                 name="fileComprobante"
                 className="localizacion__input mb-2"
+                onChange={uploadFile}
             />
             <label>Número de teléfono</label>
             <input
@@ -27,10 +41,9 @@ export const Localizacion = () => {
                 onChange={phoneValidation}
             />
             {
-                correcto === '' && <h1></h1>,
                 correcto === false &&
                 <div className="alert alert-danger mt-1" role="alert">
-                    El número que ingreso no es válido, asegurese de que sea un número existente!.
+                    El número ingresado no es correcto. Debe ser mayor a 8 caracteres.
                 </div>
             }
             <label>Dirección de correo electrónico</label>
@@ -41,8 +54,7 @@ export const Localizacion = () => {
                 onChange={emailValidator}
             />
             {
-                esCorrecto === '' && <h1></h1>,
-                esCorrecto === false &&
+                emailCorrecto === false &&
                 <div className="alert alert-danger mt-1" role="alert">
                     La cuenta de correo que ingresó no es válida : example@gmail.com
                 </div>

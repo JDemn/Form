@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import { FaArrowDown } from 'react-icons/fa';
+import { useEmail } from '../../hooks/useEmail';
+import { usePhone } from '../../hooks/usePhone';
+
+// import { useCurp } from '../../hooks/useCurp';
 import { useRfc } from '../../hooks/useRfc';
 export const RepresentanteLegal = () => {
     const [option, setoption] = useState(false);
@@ -8,9 +12,12 @@ export const RepresentanteLegal = () => {
         console.log(currentTarget.className);
         currentTarget.className === 'rlegal__main mt-3 d-flex justify-content-between pointer' && setoption(!option);
     }
+    const { emailValidator, emailCorrecto } = useEmail()
+    const { validatorRfc, esCorrecto } = useRfc();
+    console.log('Es correcto?', esCorrecto);
+    const { phoneValidation, correcto } = usePhone();
 
-    const {validatorRfc,esCorrecto} = useRfc();
-    console.log('Es correcto?',esCorrecto);
+    // const {curpValidation, curpCorrecto} = useCurp();
 
     return (
         <>
@@ -57,7 +64,7 @@ export const RepresentanteLegal = () => {
                             type="text"
                             name="rrfc"
                             placeholder="RFC"
-                            onChange={ validatorRfc }
+                            onChange={validatorRfc}
                         />
                         <input
                             type="text"
@@ -73,11 +80,13 @@ export const RepresentanteLegal = () => {
                             type="text"
                             name="remail"
                             placeholder="correo electrónico"
+                            onChange={emailValidator}
                         />
                         <input
                             type="number"
                             name="rtelefono"
                             placeholder="teléfono"
+                            onChange={phoneValidation}
                         />
                     </div>
                     <div className="gender">
@@ -98,11 +107,22 @@ export const RepresentanteLegal = () => {
                         <label className="gender">Mujer</label><br />
                     </div>
                     {
-                            esCorrecto === ''&&<h1></h1>,
-                            esCorrecto===false&&
-                            <div className="alert alert-danger mt-1" role="alert">
-                                El formato del Rfc No es correcto
-                            </div>
+                        esCorrecto === false &&
+                        <div className="alert alert-danger mt-1" role="alert">
+                            El formato de RFC No es correcto!, asegúrese de estar escrito en mayúsculas y contar con 13 caracteres!
+                        </div>
+                    }
+                    {
+                        correcto === false &&
+                        <div className="alert alert-danger mt-1" role="alert">
+                            El número ingresado no es correcto. Debe ser mayor a 8 caracteres.
+                        </div>
+                    }
+                    {
+                        emailCorrecto === false &&
+                        <div className="alert alert-danger mt-1" role="alert">
+                            La cuenta de correo que ingresó no es válida : example@gmail.com
+                        </div>
                     }
                 </>
             }

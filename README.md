@@ -1,3 +1,18 @@
+# Acerca de la app
+para este proyeto implementé el uso de sass para extender mis funcionalidades de css, crear variables globales y el uso de funciones en variables, así como la creación de clases personalizadas.
+
+# Estructura de carpetas
+dentro de src opté por tener la siguiente estructura:
+# folder components 
+dentro de esta carpeta se incluyen los principales componentes de esta pequeña app. Si en un futuro se agregan nuevos componentes aquí se podrían incluir con nuevos folders y dentro de ellos sus respectivos componentes.
+# folder hooks 
+se optó por implementar algunos hooks personalizados para poder implementar la reutilización de cierta lógica. En este caso para las validaciones del email, clabe bancaria, curp, rfc, phone y formularios. Así si existen o existirán más componentes que necesiten de esta lógica en un futuro, entonces ya no es necesaria crearla en cada uno de los componentes y solo se necesitará de la importación de dicha lógica.
+# folder de styles
+este folder es debido a la utilización de sass, para gestionar mejor nuestros estilos, dar estilos por componentes y tenerlos en un lugar centralizado en la aplicación. permitiendo un mejor escalamiento a futuro.
+
+siguiendo esta estructura se puede incluir la incorporación de redux.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

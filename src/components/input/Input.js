@@ -6,9 +6,10 @@ import { CuentaBancaria } from './CuentaBancaria';
 import { Buton } from '../butons/Buton';
 import { useForm } from '../../hooks/useForm';
 import { useRfc } from '../../hooks/useRfc';
+
 export const Input = (props) => {
     console.log(props)
-    const [formState, haleInputChange] = useForm({
+    const [formState, handleInputChange] = useForm({
         rsocial: 'S.A de C.V',
         ncomercial: 'walmart',
         nacionalidad: 'mexicana',
@@ -27,44 +28,44 @@ export const Input = (props) => {
         fileComprobante: '',
         telefono: 3123104335,
         email: 'example@gmail.com',
-        representante : 'Deniz M',
-        rnacimiento : '',
-        rentidadf : 'Jalisco',
-        rpaisnacimiento : 'Mexico',
-        rnacionalidad : 'mexicana',
-        rcurp  : 'DEMG961029HJCNND02',
-        rrfc : 'DEMG9610277JA',
-        rdomicilio : 'Higuera de peters',
-        restadoCivil : 'soltero',
-        remail : 'jdeniz1@gmail.com',
-        rtelefono : 31231234234,
-        rhombre : '',
-        rmujer : '',
-        cinterbancaria : 1234,
-        banco : 'Santander'
+        representante: 'Deniz M',
+        rnacimiento: '',
+        rentidadf: 'Jalisco',
+        rpaisnacimiento: 'Mexico',
+        rnacionalidad: 'mexicana',
+        rcurp: 'DEMG961029HJCNND02',
+        rrfc: 'DEMG9610277JA',
+        rdomicilio: 'Higuera de peters',
+        restadoCivil: 'soltero',
+        remail: 'jdeniz1@gmail.com',
+        rtelefono: 31231234234,
+        rhombre: '',
+        rmujer: '',
+        cinterbancaria: 1234,
+        banco: 'Santander'
     });
 
-    const { 
-        rsocial, 
-        ncomercial, 
-        nacionalidad, 
-        date, 
-        rfc, 
-        rfiscal, 
-        industria, 
-        domicilio, 
-        exterior, 
-        interior, 
-        cp, 
-        colonia, 
-        ciudad, 
-        entidad, 
-        pais, 
-        fileComprobante, 
-        telefono, 
+    const {
+        rsocial,
+        ncomercial,
+        nacionalidad,
+        date,
+        rfc,
+        rfiscal,
+        industria,
+        domicilio,
+        exterior,
+        interior,
+        cp,
+        colonia,
+        ciudad,
+        entidad,
+        pais,
+        fileComprobante,
+        telefono,
         email,
-        representante, 
-        rnacimiento, 
+        representante,
+        rnacimiento,
         rentidadf,
         rpaisnacimiento,
         rnacionalidad,
@@ -83,9 +84,9 @@ export const Input = (props) => {
 
     const hanleLogin = (e) => {
         e.preventDefault();
-        console.log(rsocial, ncomercial, nacionalidad, date, rfc, rfiscal, industria, domicilio, exterior, interior, cp, colonia, ciudad, entidad, pais, telefono, email, fileComprobante,representante,rnacimiento,rentidadf,rpaisnacimiento,rnacionalidad,rcurp,rrfc,rdomicilio,restadoCivil,remail,rtelefono,rhombre,rmujer,cinterbancaria,banco);
+        console.log(rsocial, ncomercial, nacionalidad, date, rfc, rfiscal, industria, domicilio, exterior, interior, cp, colonia, ciudad, entidad, pais, telefono, email, fileComprobante, representante, rnacimiento, rentidadf, rpaisnacimiento, rnacionalidad, rcurp, rrfc, rdomicilio, restadoCivil, remail, rtelefono, rhombre, rmujer, cinterbancaria, banco);
     }
-    const{validatorRfc,esCorrecto}=useRfc();
+    const { validatorRfc, esCorrecto } = useRfc();
 
     return (
         <>
@@ -97,7 +98,7 @@ export const Input = (props) => {
                     name="rsocial"
                     className="form-input-gral"
                     value={rsocial}
-                    onChange={haleInputChange}
+                    onChange={handleInputChange}
                 />
 
                 <label>Nombre comercial</label>
@@ -105,14 +106,14 @@ export const Input = (props) => {
                     type="text"
                     name="ncomercial"
                     value={ncomercial}
-                    onChange={haleInputChange}
+                    onChange={handleInputChange}
                 />
                 <label>Nacionalidad</label>
                 <input
                     type="text"
                     name="nacionalidad"
                     value={nacionalidad}
-                    onChange={haleInputChange}
+                    onChange={handleInputChange}
                 />
                 <label>Fecha de constitución</label>
                 <input
@@ -120,31 +121,34 @@ export const Input = (props) => {
                     name="date"
                     className="form__date"
                     value={date}
-                    onChange={haleInputChange}
+                    onChange={handleInputChange}
                 />
                 <label>RFC</label>
                 <input
                     type="text"
                     name="rfc"
-                    value={rfc}
-                    onChange={haleInputChange}
+                    value={rfc.toUpperCase()}
+                    onChange={e => { handleInputChange(e); validatorRfc(e) }}
                 />
                 {
-                    esCorrecto === false && <h3>error</h3>
+                    esCorrecto === false &&
+                    <div className="alert alert-danger mt-1" role="alert">
+                        El formato de RFC No es correcto!
+                    </div>
                 }
                 <label>Régimen fiscal</label>
                 <input
                     type="text"
                     name="rfiscal"
                     value={rfiscal}
-                    onChange={haleInputChange}
+                    onChange={handleInputChange}
                 />
                 <label>Industria</label>
                 <input
                     type="text"
                     name="industria"
                     value={industria}
-                    onChange={haleInputChange}
+                    onChange={handleInputChange}
                 />
                 <Domicilio />
                 <Localizacion className="localizacion" />
