@@ -5,6 +5,7 @@ import { RepresentanteLegal } from './RepresentanteLegal';
 import { CuentaBancaria } from './CuentaBancaria';
 import { Buton } from '../butons/Buton';
 import { useForm } from '../../hooks/useForm';
+import { useRfc } from '../../hooks/useRfc';
 export const Input = (props) => {
     console.log(props)
     const [formState, haleInputChange] = useForm({
@@ -39,6 +40,8 @@ export const Input = (props) => {
         rtelefono : 31231234234,
         rhombre : '',
         rmujer : '',
+        cinterbancaria : 1234,
+        banco : 'Santander'
     });
 
     const { 
@@ -72,14 +75,18 @@ export const Input = (props) => {
         remail,
         rtelefono,
         rhombre,
-        rmujer 
+        rmujer,
+        cinterbancaria,
+        banco
     } = formState;
 
 
     const hanleLogin = (e) => {
         e.preventDefault();
-        console.log(rsocial, ncomercial, nacionalidad, date, rfc, rfiscal, industria, domicilio, exterior, interior, cp, colonia, ciudad, entidad, pais, telefono, email, fileComprobante,representante,rnacimiento,rentidadf,rpaisnacimiento,rnacionalidad,rcurp,rrfc,rdomicilio,restadoCivil,remail,rtelefono,rhombre,rmujer);
+        console.log(rsocial, ncomercial, nacionalidad, date, rfc, rfiscal, industria, domicilio, exterior, interior, cp, colonia, ciudad, entidad, pais, telefono, email, fileComprobante,representante,rnacimiento,rentidadf,rpaisnacimiento,rnacionalidad,rcurp,rrfc,rdomicilio,restadoCivil,remail,rtelefono,rhombre,rmujer,cinterbancaria,banco);
     }
+    const{validatorRfc,esCorrecto}=useRfc();
+
     return (
         <>
             <form className="form__main mr ml mt-4" onSubmit={hanleLogin}>
@@ -122,6 +129,9 @@ export const Input = (props) => {
                     value={rfc}
                     onChange={haleInputChange}
                 />
+                {
+                    esCorrecto === false && <h3>error</h3>
+                }
                 <label>Régimen fiscal</label>
                 <input
                     type="text"

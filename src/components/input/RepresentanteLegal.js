@@ -9,9 +9,8 @@ export const RepresentanteLegal = () => {
         currentTarget.className === 'rlegal__main mt-3 d-flex justify-content-between pointer' && setoption(!option);
     }
 
-    const {validatorRfc} = useRfc();
-    console.log(validatorRfc);
-    
+    const {validatorRfc,esCorrecto} = useRfc();
+    console.log('Es correcto?',esCorrecto);
 
     return (
         <>
@@ -63,7 +62,7 @@ export const RepresentanteLegal = () => {
                         <input
                             type="text"
                             name="rdomicilio"
-                            placeholder="domicilio"
+                            placeholder="calle"
                         />
                         <input
                             type="text"
@@ -98,6 +97,13 @@ export const RepresentanteLegal = () => {
                         />
                         <label className="gender">Mujer</label><br />
                     </div>
+                    {
+                            esCorrecto === ''&&<h1></h1>,
+                            esCorrecto===false&&
+                            <div className="alert alert-danger mt-1" role="alert">
+                                El formato del Rfc No es correcto
+                            </div>
+                    }
                 </>
             }
         </>
