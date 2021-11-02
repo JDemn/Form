@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaArrowDown } from 'react-icons/fa';
 
 export const Domicilio = () => {
+    
     const [show, setshow] = useState(false);
 
     const addOptions = ({ currentTarget }) => {

@@ -1,9 +1,18 @@
-import React from 'react'
+import { useState } from "react";
 
-export const useForm = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+export const useForm = (inialState = {}) => {
+    const [formState, setformState] = useState(inialState);
+
+    const reset =()=> {
+        setformState(inialState);
+    }
+
+    const haleInputChange = ({target})=> {
+        setformState({
+            ...formState,
+            [target.name] : target.value,
+        })
+    }
+    
+    return [formState, haleInputChange, reset]
 }

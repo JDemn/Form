@@ -1,0 +1,13 @@
+.cuentaBancaria__main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cuentaBancaria-container {
+    input {
+        width: 27vw;
+    }
+    .dos {
+        margin-left: 1.2rem;
+    }
+}

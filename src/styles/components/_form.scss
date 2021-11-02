@@ -26,14 +26,14 @@
             color: lighten($color: $dark, $amount: 15);
             margin-left: 5px!important;
             // color: darken($color: $dark, $amount: 9);
-            font-style: italic;
             font-size: 12px;
         }
     }
+    
 }
 
 .form__title {
-    color: darken($color: $green, $amount: 35);
+    color: darken($color: $primary, $amount: 25);
     margin-bottom: 0px;
 }
 .form-input-gral {
