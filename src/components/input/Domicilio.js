@@ -4,7 +4,7 @@ import { FaArrowDown } from 'react-icons/fa';
 export const Domicilio = () => {
     
     const [show, setshow] = useState(false);
-
+    
     const addOptions = ({ currentTarget }) => {
         currentTarget.className === 'domicilio__main pointer mt-3' && setshow(!show);
     }
@@ -24,6 +24,7 @@ export const Domicilio = () => {
                             type="text"
                             placeholder="Calle o avenida"
                             name="domicilio"
+                            required
                         />
                         <input
                             type="number"

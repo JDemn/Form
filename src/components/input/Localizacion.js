@@ -27,13 +27,14 @@ export const Localizacion = () => {
                 name="fileComprobante"
                 className="localizacion__input mb-2"
                 onChange={uploadFiles}
+                required
             />
             <label>Número de teléfono</label>
             <input
                 type="number"
-                placeholder="..."
                 name="telefono"
                 onChange={phoneValidation}
+                required
             />
             {
                 correcto === false &&
@@ -47,6 +48,7 @@ export const Localizacion = () => {
                 placeholder="juan@example.com"
                 name="email"
                 onChange={emailValidator}
+                required
             />
             {
                 emailCorrecto === false &&

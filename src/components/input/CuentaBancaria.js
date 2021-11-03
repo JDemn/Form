@@ -30,6 +30,7 @@ export const CuentaBancaria = () => {
                             placeholder="número de tarjeta"
                             name="cinterbancaria"
                             onChange={clabeBancariaV}
+                            required
                         />
                         <input
                             type="text"

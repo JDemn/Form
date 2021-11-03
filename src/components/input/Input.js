@@ -8,41 +8,41 @@ import { useForm } from '../../hooks/useForm';
 import { useRfc } from '../../hooks/useRfc';
 
 export const Input = () => {
-    
+    //our hooks
     const [formState, handleInputChange] = useForm({
-        rsocial: 'S.A de C.V',
-        ncomercial: 'walmart',
-        nacionalidad: 'mexicana',
+        rsocial: 'BMW Ibérica S.A',
+        ncomercial: '',
+        nacionalidad: '',
         date: '',
-        rfc: 'DEMG9610297JA',
+        rfc: '',
         rfiscal: '',
-        industria: 'alimentos',
-        domicilio: 'verde valle',
-        exterior: 34,
-        interior: 2323,
-        cp: 28750,
-        colonia: 'verde valle',
-        ciudad: 'villa de alvarez',
-        entidad: 'Colima',
-        pais: 'mexico',
+        industria: '',
+        domicilio: '',
+        exterior: '',
+        interior: '',
+        cp: '',
+        colonia: '',
+        ciudad: '',
+        entidad: '',
+        pais: '',
         fileComprobante: '',
         telefono: 3123104335,
-        email: 'example@gmail.com',
-        representante: 'Deniz M',
+        email: '',
+        representante: '',
         rnacimiento: '',
-        rentidadf: 'Jalisco',
-        rpaisnacimiento: 'Mexico',
-        rnacionalidad: 'mexicana',
-        rcurp: 'DEMG961029HJCNND02',
-        rrfc: 'DEMG9610277JA',
-        rdomicilio: 'Higuera de peters',
-        restadoCivil: 'soltero',
-        remail: 'jdeniz1@gmail.com',
-        rtelefono: 31231234234,
+        rentidadf: '',
+        rpaisnacimiento: '',
+        rnacionalidad: '',
+        rcurp: '',
+        rrfc: '',
+        rdomicilio: '',
+        restadoCivil: '',
+        remail: '',
+        rtelefono: '',
         rhombre: '',
         rmujer: '',
-        cinterbancaria: 1234,
-        banco: 'Santander'
+        cinterbancaria: '',
+        banco: ''
     });
 
     const {
@@ -122,6 +122,7 @@ export const Input = () => {
                     className="form__date"
                     value={date}
                     onChange={handleInputChange}
+                    required
                 />
                 <label>RFC</label>
                 <input
@@ -129,6 +130,7 @@ export const Input = () => {
                     name="rfc"
                     value={rfc.toUpperCase()}
                     onChange={e => { handleInputChange(e); validatorRfc(e) }}
+                    required
                 />
                 {
                     esCorrecto === false &&

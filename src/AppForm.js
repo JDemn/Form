@@ -3,9 +3,12 @@ import { Input } from './components/input/Input'
 import { UserContex } from './Usecontex/UserContex'
 
 export const AppForm = () => {  
+    const data = {
+        saludo : 'hola'
+    }
     return (
         <div>
-            <UserContex.Provider >
+            <UserContex.Provider value = {data}>
                 <Input />
             </UserContex.Provider>
         </div>
