@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaArrowDown } from 'react-icons/fa';
 import { useClabeBancaria } from '../../hooks/useClabeBancaria';
+
 export const CuentaBancaria = () => {
     const [option, setoption] = useState(false);
 
@@ -9,6 +10,9 @@ export const CuentaBancaria = () => {
         currentTarget.className === 'cuentaBancaria__main d-flex justify-content-between pointer mt-3' && setoption(!option);
     }
     const { clabeBancariaV, clabeCorrecta } = useClabeBancaria();
+    //useContex
+    // const userContex = useContext(UserContex);
+    // console.log('userContex',rsocial, ncomercial);
 
     return (
         <>

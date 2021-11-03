@@ -1,29 +1,24 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import { useEmail } from '../../hooks/useEmail'
 import { usePhone } from '../../hooks/usePhone';
 
 export const Localizacion = () => {
-
+    //custom hooks
     const { emailValidator, emailCorrecto } = useEmail();
-    console.log('Es correcto?', emailCorrecto);
-
     const { phoneValidation, correcto } = usePhone();
-    console.log('phone correcto?', correcto);
 
-    const uploadFile = ({ target }) => {
+    useEffect(() => {
+        // console.log('Email validation cambió!');
+    }, [emailValidator, phoneValidation])
+    
+    const uploadFiles = ({ target }) => {
         const file = target.files;
-        console.log('data file', file);
         const reader = new FileReader();
         reader.readAsDataURL(file[0])
         reader.onload = ({ target }) => {
             console.log('img', target.result);
         }
     }
-    useEffect(()=>{
-        // console.log('Email validation cambió!');
-    },[emailValidator, phoneValidation])
-    
-
     return (
         <div className="localizacion__main mt-4">
             <label>Comprobante de domicilio</label>
@@ -31,7 +26,7 @@ export const Localizacion = () => {
                 type="file"
                 name="fileComprobante"
                 className="localizacion__input mb-2"
-                onChange={uploadFile}
+                onChange={uploadFiles}
             />
             <label>Número de teléfono</label>
             <input

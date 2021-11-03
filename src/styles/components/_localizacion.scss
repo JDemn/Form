@@ -7,3 +7,9 @@
     width: 25vw;
     padding-bottom: 3px;
 }
+
+@media(max-width : 1024px){
+    .localizacion__input{
+        width: 100%;
+    }
+}

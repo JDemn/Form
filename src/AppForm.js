@@ -1,10 +1,13 @@
 import React from 'react'
 import { Input } from './components/input/Input'
+import { UserContex } from './Usecontex/UserContex'
 
-export const AppForm = () => {
+export const AppForm = () => {  
     return (
         <div>
-            <Input />
+            <UserContex.Provider >
+                <Input />
+            </UserContex.Provider>
         </div>
     )
 }

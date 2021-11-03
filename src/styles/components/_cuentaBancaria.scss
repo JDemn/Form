@@ -11,3 +11,13 @@
         margin-left: 1.2rem;
     }
 }
+@media(max-width : 1024px){
+    .cuentaBancaria-container {
+        input {
+            width: 100%;
+        }
+        .dos {
+            margin-left: 0px;
+        }
+    }
+}

@@ -25,7 +25,13 @@ html, body {
     justify-content: center;
     width: 100vw;
 }
-
+//resposive
+@media(max-width : 579px){
+  html, body { 
+    background-color: #FFFF;
+    overflow-x: hidden;
+  }
+}
 .ml {
   margin-left: 1.2rem;
 }

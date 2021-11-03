@@ -45,3 +45,25 @@
 .form__date {
     width: 20vw;
 }
+
+//responsive
+@media(max-width : 579px){
+    .form__main{
+        padding: 30px!important;
+        width: 100vw;
+    }
+    .form__title {
+        color: darken($color: $primary, $amount: 25);
+        margin-bottom: 12px;
+    }
+    
+}
+@media(max-width : 1024px){
+    .form__main{
+        padding: 30px!important;
+        width: 100vw;
+    }
+    .form__date {
+        width: 60%;
+    }
+}

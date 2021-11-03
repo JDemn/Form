@@ -23,3 +23,11 @@
         width: 28vw;
     }
 }
+//responsive
+@media(max-width : 1024px){
+    .domicilio__container {
+        input {
+            width: 100%;
+        }   
+    }
+}

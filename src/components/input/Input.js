@@ -7,8 +7,8 @@ import { Buton } from '../butons/Buton';
 import { useForm } from '../../hooks/useForm';
 import { useRfc } from '../../hooks/useRfc';
 
-export const Input = (props) => {
-    console.log(props)
+export const Input = () => {
+    
     const [formState, handleInputChange] = useForm({
         rsocial: 'S.A de C.V',
         ncomercial: 'walmart',
