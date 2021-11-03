@@ -35,11 +35,13 @@ export const RepresentanteLegal = () => {
                             name="representante"
                             placeholder="Nombre"
                         />
-
-                        <input
-                            type="date"
-                            name="rnacimiento"
-                        />
+                        <div className = "rlegal-nacimiento">
+                            <label>Fecha de nacimiento</label>
+                            <input
+                                type="date"
+                                name="rnacimiento"
+                            />
+                        </div>
                         <input
                             type="text"
                             name="rentidadf"
